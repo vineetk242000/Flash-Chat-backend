@@ -14,9 +14,6 @@ app.use(express.static(publicPath));
 
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
 
-app.get('*', (req, res) => {
-    res.sendFile(path.join(publicPath, 'index.html'));
-});
 
 
 http.listen(PORT,()=> console.log("server is connected"))
