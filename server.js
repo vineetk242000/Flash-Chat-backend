@@ -15,8 +15,10 @@ app.use(express.static(publicPath));
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
 
 
+app.get("/", (req, res) => {
+  res.send({ response: "Server is up and running." }).status(200);
+});
 
-http.listen(PORT,()=> console.log("server is connected"))
 
 io.on('connect', (socket) => {
   socket.on('join', ({ name, room }, callback) => {
@@ -51,7 +53,7 @@ io.on('connect', (socket) => {
   })
 });
 
-
+http.listen(PORT,()=> console.log("server is connected"))
   
 
 
